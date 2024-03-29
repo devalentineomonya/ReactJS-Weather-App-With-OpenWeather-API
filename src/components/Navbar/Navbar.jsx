@@ -11,7 +11,7 @@ const Navbar = () => {
         </div>
         <div className="w-[30px] h-[30px]  rounded-full bg-[#1e1e1e] flex justify-center items-center text-[#feffff] p-1 cursor-pointer relative">
           <Bell size={12} />
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#fa1e18] opacity-15"></span>
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#fa1e18] opacity-10"></span>
         </div>
         <div className="flex items-center justify-center  text-[#feffff]  cursor-pointer">
           <MapPin size={12} />
