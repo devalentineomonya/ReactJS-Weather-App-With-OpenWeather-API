@@ -9,13 +9,13 @@ const Navbar = () => {
         <div className="w-[30px] h-[30px]  rounded-full bg-[#1e1e1e] flex justify-center items-center text-[#feffff] p-1  cursor-pointer">
           <LayoutGrid size={12} />
         </div>
-        <div className="w-[30px] h-[30px]  rounded-full bg-[#1e1e1e] flex justify-center items-center text-[#feffff] p-1 cursor-pointer relative">
+        <div className="w-[30px] h-[30px]  rounded-full bg-[#1e1e1e] flex justify-center items-center text-[#feffff] p-1 cursor-pointer ">
           <Bell size={12} />
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#fa1e18] opacity-10"></span>
         </div>
-        <div className="flex items-center justify-center  text-[#feffff]  cursor-pointer">
+        <div className="flex items-center justify-center  text-[#feffff]  cursor-pointer relative">
           <MapPin size={12} />
-          <span className="ml-1 whitespace-nowrap  cursor-pointer">Nairobi Kenya</span>
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#fa1e18] opacity-10"></span>
+          <span className="ml-1 whitespace-nowrap  cursor-pointer">Nairobi,<span className="text-[#9c9c9c]">Kenya</span></span>
        
         </div>
       </div>

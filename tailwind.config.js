@@ -9,7 +9,8 @@ export default {
     extend: {},
     fontFamily:{
       Chakra:["Chakra Petch"],
-      Titillium:["Titillium Web"]
+      Titillium:["Titillium Web"],
+      Anta: ["Anta"],
 
     }
   },

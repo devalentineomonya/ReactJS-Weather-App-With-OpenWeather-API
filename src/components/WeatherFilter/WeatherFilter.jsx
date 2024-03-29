@@ -21,7 +21,7 @@ const WeatherFilter = () => {
         <div className="z-10 flex justify-center items-center">
           <span className="whitespace-nowrap text-[#9c9c9c]">Air Quality</span>
         </div>
-        <div className="absolute w-[46%] h-full bg-[#bbd7ec] left-0 rounded-full  "></div>
+        <div className="absolute w-[46%] h-full bg-[#bcd8ed] left-0 rounded-full  "></div>
       </div>
     </div>
   );
