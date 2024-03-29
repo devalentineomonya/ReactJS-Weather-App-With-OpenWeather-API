@@ -7,3 +7,4 @@
 #feffff
 #1e1e1e
 #111015
+https://api.openweathermap.org/data/2.5/weather?q=NAIROBI&appid=ea76d6ff36ff18c4cfdb2cb46488379d
