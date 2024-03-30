@@ -1,7 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import React from "react";
 import OtherCityCard from "./OtherCityCard/OtherCityCard";
-
+import "../../scrollbar.css";
 const OtherCities = () => {
   return (
     <div className="flex flex-col w-full">
@@ -12,7 +12,23 @@ const OtherCities = () => {
           <ChevronRight />
         </h3>
       </div>
-      <div>
+      <div className=" mt-7 overflow-y-scroll h-[350px] srollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
+        <OtherCityCard />
+        <OtherCityCard />
+        <OtherCityCard />
+        <OtherCityCard />
+        <OtherCityCard />
+        <OtherCityCard />
+        <OtherCityCard />
+        <OtherCityCard />
+        <OtherCityCard />
+        <OtherCityCard />
+        <OtherCityCard />
+        <OtherCityCard />
+        <OtherCityCard />
+        <OtherCityCard />
+        <OtherCityCard />
+        <OtherCityCard />
         <OtherCityCard />
       </div>
     </div>

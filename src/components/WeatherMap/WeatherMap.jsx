@@ -19,10 +19,10 @@ const WeatherMap = () => {
   return (
     <div className="flex flex-col relative">
       <div className="flex justify-between text-[#feffff] mt-[20px]">
-        <div>Global Map</div>
+        <div className="cursor-pointer">Global Map</div>
         <div className="bg-[#1e1e1e] w-[110px] rounded-full px-[10px] py-[5px]">
           <p className="whitespace-nowrap cursor-pointer" onClick={openFullMap}>
-            <span>
+            <span className="text-[14px]">
               View Wide <span>✨</span>
             </span>
           </p>
