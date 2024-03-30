@@ -1,23 +1,41 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-// Create a new Axios instance with base URL and API key
+// Function to fetch user's geolocation
+const fetchGeolocation = async () => {
+  try {
+    const response = await axios.get('https://ipapi.co/json/');
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching geolocation:', error);
+    throw error;
+  }
+};
+
+
 const instance = axios.create({
   baseURL: 'https://api.openweathermap.org/data/2.5',
   params: {
     appid: 'ea76d6ff36ff18c4cfdb2cb46488379d',
-    q: 'Nairobi, Kenya',
-    units: 'metric', // Use metric units for temperature
-    cnt: 7, // Fetch weather for 7 days
+    units: 'metric', 
+    cnt: 7, 
   },
 });
 
-// Function to fetch weather data for Nairobi, Kenya for 7 days
+
 export const fetchWeatherData = async () => {
   try {
+    const geolocationData = await fetchGeolocation();
+    const { city, country } = geolocationData;
+    instance.defaults.params.q = `${city},${country}`;
     const response = await instance.get('/forecast');
     return response.data;
   } catch (error) {
+
     console.error('Error fetching weather data:', error);
-    throw error; // Throw error to handle it in the component
+    const errorCode = error.code;
+    toast.error('There was  ' + errorCode.toLowerCase() + '. Please try again later.', { theme: "colored" });
+    throw error;
   }
 };

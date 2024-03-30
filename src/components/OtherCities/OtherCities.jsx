@@ -12,7 +12,7 @@ const OtherCities = () => {
           <ChevronRight />
         </h3>
       </div>
-      <div className=" mt-7 overflow-y-scroll h-[350px] srollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
+      <div className=" mt-3 overflow-y-scroll h-[350px] srollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
         <OtherCityCard />
         <OtherCityCard />
         <OtherCityCard />

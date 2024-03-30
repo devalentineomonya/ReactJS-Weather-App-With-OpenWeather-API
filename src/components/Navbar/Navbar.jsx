@@ -7,22 +7,26 @@ import {
   Search,
   Sun,
 } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import icon from "../../../DevalWeather.jpg";
+import { IpContext } from "../../Context/IpContext/IpContext";
 
 const Navbar = () => {
+  const { ip, city, countryName } = useContext(IpContext);
+
   const [theme, setTheme] = useState("system");
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
       setTheme(savedTheme);
     }
-  }, [])
+  }, []);
 
   const changeTheme = (themeName) => {
     setTheme(themeName);
     localStorage.setItem("theme", themeName);
   };
+
   return (
     <div className="flex justify-between h-9 w-full">
       <div className="w-[70%] flex justify-between">
@@ -33,13 +37,15 @@ const Navbar = () => {
           <div className="w-[30px] h-[30px]  rounded-full bg-[#1e1e1e] flex justify-center items-center text-[#feffff] p-1 cursor-pointer ">
             <Bell size={12} />
           </div>
-          <div className="flex items-center justify-center  text-[#feffff]  cursor-pointer relative">
-            <MapPin size={12} />
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#fa1e18] opacity-30"></span>
-            <span className="ml-1 whitespace-nowrap  cursor-pointer">
-              Nairobi,<span className="text-[#9c9c9c]">Kenya</span>
-            </span>
-          </div>
+          {city && countryName && (
+            <div className="flex items-center justify-center  text-[#feffff]  cursor-pointer relative">
+              <MapPin size={12} />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#fa1e18] opacity-30"></span>
+              <p className="ml-1 whitespace-nowrap  cursor-pointer">
+                {city},<span className="text-[#9c9c9c]">{countryName}</span>
+              </p>
+            </div>
+          )}
         </div>
         <div className="flex items-center justify-start w-1/2 bg-[#1e1e1e] h-9 rounded-full px-4 py-2 text-[#feffff] ">
           <Search />
@@ -53,9 +59,21 @@ const Navbar = () => {
       <div className="w-[30%] flex justify-end">
         <div className="flex just items-center">
           <div className="bg-[#1e1e1e] rounded-full flex justify-between items-center h-9 w-[100px] text-[#feffff] px-[5px] relative py-[10px] cursor-pointer">
-            <Sun size={18} onClick={()=>changeTheme("light")} className="z-10"/>
-            <MoonIcon size={18} onClick={()=>changeTheme("dark")} className="z-10"/>
-            <Monitor size={18} onClick={()=>changeTheme("system")} className="z-10"/>
+            <Sun
+              size={18}
+              onClick={() => changeTheme("light")}
+              className="z-10"
+            />
+            <MoonIcon
+              size={18}
+              onClick={() => changeTheme("dark")}
+              className="z-10"
+            />
+            <Monitor
+              size={18}
+              onClick={() => changeTheme("system")}
+              className="z-10"
+            />
             <div
               className={`bg-[#bbd7ec] h-9 w-9  rounded-full absolute  z-0  ${
                 theme === "light"
