@@ -8,7 +8,7 @@ const GetLocation = async () => {
     return { ip, city, countryName: country_name, continentCode:continent_code };
   } catch (error) {
     console.error('Error fetching IP address:', error);
-    throw error; // Throw error to handle it in the component
+    throw error; 
   }
 };
 

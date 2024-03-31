@@ -33,17 +33,15 @@ export const fetchWeatherData = async (city = '', country = '') => {
   }
 };
 
-export const fetchOtherCities = async () => {
+export const fetchOtherCities = async (cities) => {
   try {
-    const cities = ["London", "Paris", "New York", "Tokyo", "Moscow", "Sydney", "Berlin", "Rome", "Beijing", "Dubai", "Mumbai", "Rio de Janeiro", "Toronto", "Los Angeles", "Cairo"];
     const promises = cities.map(async (city) => {
       const response = await instance.get('/forecast', { params: { q: city } });
-      return response.data;
+      return { city, weatherData: response.data };
     });
-    const weatherData = await Promise.all(promises);
-    return weatherData;
+    const cityWeatherData = await Promise.all(promises);
+    return cityWeatherData;
   } catch (error) {
     throw error;
   }
 };
-
