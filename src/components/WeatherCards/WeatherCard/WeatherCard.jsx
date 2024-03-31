@@ -9,7 +9,6 @@ const WeatherCard = ({ setActiveCard, active, weatherData }) => {
   };
 
   if (weatherData) {
-    console.log(weatherData);    
     const { main, weather, clouds, rain, sys, wind, dt_txt } = weatherData;
     const date = new Date(dt_txt);
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import WeatherMapPopup from "./WeatherMapPopup/WeatherMapPopup";
 
 const mapLink =
   "https://map.worldweatheronline.com/temperature?lat=69.83516671142212&lng=-3.788767463537757";
@@ -45,6 +46,9 @@ const WeatherMap = () => {
           }`}
           onLoad={handleMapLoad}
         ></iframe>
+      </div>
+      <div className="absolute bottom-[20px] left-[20px]">
+        <WeatherMapPopup openFullMap={openFullMap} />
       </div>
     </div>
   );

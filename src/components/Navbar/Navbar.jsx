@@ -9,10 +9,12 @@ import {
 } from "lucide-react";
 import React, { useContext, useEffect, useState } from "react";
 import icon from "../../../DevalWeather.jpg";
-import { IpContext } from "../../Context/IpContext/IpContext";
+import { LocationContext } from "../../Context/LocationContext/LocationContext";
+import SearchInput from "./SearchInput/SearchInput";
 
 const Navbar = () => {
-  const { ip, city, countryName } = useContext(IpContext);
+  const { locationInfo,_ } = useContext(LocationContext);
+  const { ip, city, countryName } = locationInfo;
 
   const [theme, setTheme] = useState("system");
   useEffect(() => {
@@ -47,14 +49,7 @@ const Navbar = () => {
             </div>
           )}
         </div>
-        <div className="flex items-center justify-start w-1/2 bg-[#1e1e1e] h-9 rounded-full px-4 py-2 text-[#feffff] ">
-          <Search />
-          <input
-            type="text"
-            placeholder="Search city..."
-            className="w-full bg-transparent text-[#feffff] ml-3 border-none outline-none font-semibold text-[18px]"
-          />
-        </div>
+        <SearchInput />
       </div>
       <div className="w-[30%] flex justify-end">
         <div className="flex just items-center">

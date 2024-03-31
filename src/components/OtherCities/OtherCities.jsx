@@ -1,8 +1,23 @@
 import { ChevronRight } from "lucide-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import OtherCityCard from "./OtherCityCard/OtherCityCard";
 import "../../scrollbar.css";
+import { fetchOtherCities } from "../WeatherAPI/WeatherApi";
 const OtherCities = () => {
+  const [citesWeather, setCitiesWeather] = useState([])
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetchOtherCities();
+        setCitiesWeather (data.list);
+      } catch (error) {
+        console.error("Error fetching weather data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  console.log(citesWeather);
   return (
     <div className="flex flex-col w-full">
       <div className="flex flex-row justify-between mt-[20px]">

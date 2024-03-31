@@ -1,14 +1,15 @@
 import axios from 'axios';
 
-const getLocation = async () => {
+const GetLocation = async () => {
   try {
     const response = await axios.get('https://ipapi.co/json/');
-    const { ip, city, country_name } = response.data;
-    return { ip, city, countryName: country_name };
+    console.log(response.data);
+    const { ip, city, country_name, continent_code } = response.data;
+    return { ip, city, countryName: country_name, continentCode:continent_code };
   } catch (error) {
     console.error('Error fetching IP address:', error);
     throw error; // Throw error to handle it in the component
   }
 };
 
-export default getLocation;
+export default GetLocation;
