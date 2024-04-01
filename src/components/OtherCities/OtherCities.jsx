@@ -46,7 +46,7 @@ const OtherCities = () => {
               enableAnimation={true}
             >
               <Skeleton
-                className="w-[95%] h-[110px] rounded-xl mb-[15px] mr-[10px]"
+                className="lg:w-[95%] w-[100%] h-[110px] rounded-xl mb-[15px] mr-[10px]"
                 count={5}
               />
             </SkeletonTheme>
