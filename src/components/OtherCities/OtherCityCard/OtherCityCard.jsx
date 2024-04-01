@@ -4,7 +4,9 @@ import WeatherImage from "../../WeatherCards/WeatherCard/WeatherImage/WeatherIma
 const OtherCityCard = ({ cityWeather, country }) => {
 
   return (
-    <div className="lg:w-[95%] w-[100%] h-[110px] bg-[#1b1b1d] rounded-xl overflow-hidden mb-[17px] lg:mr-[10px] grid grid-cols-2 pr-2  hover:scale-95 transition-all ease-in-out duration-300 cursor-pointer">
+    <div className="lg:w-[95%] w-[100%] h-[110px] bg-[#1b1b1d] rounded-xl 
+    overflow-hidden mb-[17px] lg:mr-[10px] grid grid-cols-2 pr-2  hover:scale-95 
+    transition-all ease-in-out duration-300 cursor-pointer">
       <div className="flex justify-start flex-col gap-y-1 text-[#feffff]">
         <div className="p-3">
           <p>{country}</p> {/* Display weather description */}

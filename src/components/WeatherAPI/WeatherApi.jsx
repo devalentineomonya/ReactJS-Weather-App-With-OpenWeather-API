@@ -11,7 +11,6 @@ const instance = axios.create({
     cnt: 42,
   },
 });
-console.log(import.meta.env.VITE_OPEN_API_KEY);
 
 export const fetchWeatherData = async (city = '', country = '') => {
   try {
