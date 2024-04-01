@@ -19,7 +19,7 @@ const WeatherChart = () => {
         const response = await fetch(
           "https://api.weatherapi.com/v1/current.json?q=" +
             locationInfo.city +
-            "&key=0bed83066d494196837153154240104"
+            "&key="+ import.meta.env.VITE_WEATHER_API
         );
         if (!response.ok) {
           throw new Error("Failed to fetch weather data");

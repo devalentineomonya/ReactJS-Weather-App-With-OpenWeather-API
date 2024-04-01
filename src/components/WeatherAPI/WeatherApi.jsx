@@ -6,11 +6,12 @@ import FetchGeolocation from "../GetLocationData/FetchGeolocation";
 const instance = axios.create({
   baseURL: 'https://api.openweathermap.org/data/2.5',
   params: {
-    appid: 'c2065f853b5b30df9b5f3ea28faaaf7a',
+    appid: import.meta.env.VITE_OPEN_API_KEY,
     units: 'metric',
     cnt: 42,
   },
 });
+console.log(import.meta.env.VITE_OPEN_API_KEY);
 
 export const fetchWeatherData = async (city = '', country = '') => {
   try {
