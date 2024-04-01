@@ -17,12 +17,12 @@ import { ThemeContext } from "../../Context/ThemeContext/ThemeContext";
 
 const Navbar = () => {
   const { locationInfo, _ } = useContext(LocationContext);
-  const { ip, city, countryName } = locationInfo;
+  const { city, countryName } = locationInfo;
   const [search, setSearch] = useState(false);
   const {theme} = useContext(ThemeContext);
 
   return (
-    <div className={`flex justify-between md:h-9 h-14 w-full md:relative fixed top-0 left-0 right-0 z-30 ${ theme === "dark" ? "bg-[#111015]": "bg-[#feffff]"}`}>
+    <div className="flex justify-between md:h-9 h-14 w-full md:relative fixed top-0 left-0 right-0 z-30 dark:bg-[#111015] bg-[#feffff]">
       <div className="w-[70%] flex justify-between">
         <div className="flex sm:w-[200px] w-[150px] justify-between items-center ">
           <div className="w-[30px] h-[30px]  rounded-full bg-[#1e1e1e] flex justify-center items-center text-[#feffff] p-1  cursor-pointer">

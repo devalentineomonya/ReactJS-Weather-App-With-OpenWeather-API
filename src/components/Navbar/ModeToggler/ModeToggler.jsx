@@ -3,40 +3,11 @@ import { ThemeContext } from "../../../Context/ThemeContext/ThemeContext";
 import { Monitor, MoonIcon, Sun } from "lucide-react";
 
 const ModeToggler = () => {
-  
   const { theme, setTheme } = useContext(ThemeContext);
-  const element = document.documentElement;
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setTheme(savedTheme);
-    }
-  }, []);
-
-  const changeTheme = (themeName) => {
-    setTheme(themeName);
-    localStorage.setItem("theme", themeName);
-  };
-
-  useEffect(() => {
-    switch (theme) {
-      case "light":
-        element.classList.remove("dark");
-        break;
-      case "dark":
-        element.classList.add("dark");
-        break;
-      default:
-        break;
-    }
-  }, [theme]);
 
   return (
     <div>
-      <div className="bg-[#1e1e1e] rounded-full flex justify-between 
-      items-center h-9 w-[100px] text-[#feffff] px-[5px] relative py-[10px] 
-      cursor-pointer">
+      <div className="bg-[#1e1e1e] rounded-full flex justify-between items-center h-9 w-[100px] text-[#feffff] px-[5px] relative py-[10px] cursor-pointer">
         <Sun
           size={18}
           onClick={() => changeTheme("light")}
