@@ -6,16 +6,17 @@ const Main = () => {
 
   return (
     <>
-      <div className="flex flex-row mt-[50px] gap-x-8 justify-center items-center">
-        <div className="flex flex-col w-[70%]">
-          <WeatherCards />
-          <WeatherMap />
-        </div>
-        <div className="flex flex-col  w-[30%]">
-          <WeatherBarChart />
-        </div>
+    <div className="flex flex-col lg:flex-row mt-[50px] gap-x-8 justify-center items-center">
+      <div className="flex flex-col w-full lg:w-[70%]">
+        <WeatherCards />
+        <WeatherMap />
       </div>
-    </>
+      <div className="flex flex-col w-full lg:w-[30%]">
+        <WeatherBarChart />
+      </div>
+    </div>
+  </>
+  
   );
 };
 

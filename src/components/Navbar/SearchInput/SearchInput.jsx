@@ -4,10 +4,10 @@ import { toast } from "react-toastify";
 import { WeatherContext } from "../../../Context/WeatherData/WeatherDataContext";
 import { LocationContext } from "../../../Context/LocationContext/LocationContext";
 
-const SearchInput = () => {
+const SearchInput = ({search}) => {
   const [inputValue, setInputValue] = useState("");
   const { setWeatherData, setFetching } = useContext(WeatherContext);
-  const { setLocationInfo } = useContext(LocationContext);
+  const { locationInfo, setLocationInfo } = useContext(LocationContext);
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
@@ -15,16 +15,22 @@ const SearchInput = () => {
 
   const handleSubmit = async () => {
     const [city, country] = inputValue.split(",").map((item) => item.trim());
-
+  
     if (!city || !country) {
       toast.error("Please enter both city name and country name. eg Nairobi, Kenya", {
         theme: "colored",
       });
       return;
     }
-
+    if (city === locationInfo.city && country === locationInfo.countryName) {
+      toast.warning("Weather data for the same location is already being displayed.", {
+        theme: "colored",
+      });
+      return;
+    }
+  
     setFetching(true);
-
+  
     try {
       toast.success(
         `Weather data for ${city}, ${country} received successfully.`,
@@ -52,7 +58,7 @@ const SearchInput = () => {
   };
 
   return (
-    <div className="flex items-center justify-start w-1/2 bg-[#1e1e1e] h-9 rounded-full px-4 py-2 text-[#feffff] ">
+    <div className={`fixed w-full  top-[70px] left-[50%] translate-x-[-50%] translate-y-[-50%] md:translate-x-0 md:translate-y-0 right-[8px] md:static md:flex items-center justify-start md:justify-center md:w-1/2 md:bg-[#1e1e1e] bg-[#111015] h-9 rounded-full px-4 py-2 text-[#feffff] transition-all duration-300 ease-in-out ${search ? "flex" : "hidden"}`}>
       <input
         type="text"
         placeholder="Search city..."

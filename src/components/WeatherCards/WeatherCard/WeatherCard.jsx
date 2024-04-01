@@ -13,7 +13,7 @@ const WeatherCard = ({ setActiveCard, active, weatherData }) => {
 
     return (
       <div
-        className={` h-[200px]  flex justify-center flex-col items-center flex-shrink-0  rounded-xl overflow-hidden cursor-pointer relative transition-all duration-300 ease-in-out ${
+        className={` h-[200px]  flex justify-center flex-col items-center flex-shrink-0  rounded-xl overflow-hidden cursor-pointer  hover:scale-95 transition-all ease-in-out duration-300 relative transition-all duration-300 ease-in-out ${
           active ? " w-[200px]  bg-[#bbd7ec] block" : " w-[110px]  bg-[#1b1b1d]"
         }`}
         onClick={handleClick}

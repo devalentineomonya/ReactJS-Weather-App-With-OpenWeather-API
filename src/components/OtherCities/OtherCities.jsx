@@ -23,7 +23,7 @@ const OtherCities = () => {
   }, [capitals]);
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full mt-[30px] ">
       <div className="flex flex-row justify-between">
         <h2 className="text-[#feffff] cursor-pointer">Other large Cities</h2>
         <h3 className="text-[#9c9c9c] flex flex-row gap-x-1 cursor-pointer">
@@ -31,7 +31,7 @@ const OtherCities = () => {
           <ChevronRight />
         </h3>
       </div>
-      <div className="mt-3 overflow-y-scroll h-[350px] srollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
+      <div className="mt-3 lg:overflow-y-scroll lg:h-[365px] lg:scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200 rounded-xl ">
         {citiesWeather.length > 0 ? (
           <>
             {citiesWeather.map((cityWeather, index) => (
@@ -46,7 +46,7 @@ const OtherCities = () => {
               enableAnimation={true}
             >
               <Skeleton
-                className="w-[95%] h-[105px] rounded-xl mb-[15px] mr-[10px]"
+                className="w-[95%] h-[110px] rounded-xl mb-[15px] mr-[10px]"
                 count={5}
               />
             </SkeletonTheme>

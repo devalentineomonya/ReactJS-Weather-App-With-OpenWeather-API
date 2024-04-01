@@ -7,7 +7,7 @@ const WeatherMapPopup = ({openFullMap}) => {
   const [ visible, setVisible] = useState(true);
   return (
     
-    <div className={`bg-[#feffff] rounded-2xl h-[200px] w-[200px] flex flex-col  items-center pt-[10px] relative transition-all ease-in-out duration-300 ${visible ? "" : "hidden"} `}>
+    <div className={`bg-[#feffff] rounded-2xl h-[200px] w-[200px] flex flex-col  items-center pt-[10px] relative transition-all ease-in-out duration-300 cursor-pointer ${visible ? "" : "hidden"} `}>
       <div className="absolute w-[30px] h-[30px] rounded-full bg-[#101010] 
       text-[#feffff] flex justify-center items-center top-[-5px] left-[-5px]
        cursor-pointer"
@@ -15,7 +15,7 @@ const WeatherMapPopup = ({openFullMap}) => {
         <X />
       </div>
 
-      <p className="text-center text-[12px] font-Titillium px-[20px] font-semibold">
+      <p className="text-center text-[12px] font-Titillium px-[20px] font-semibold cursor-pointer">
         Explore global map of wind, weather and oceans condition
       </p>
       <div className="w-[85%] h-[80px] bg-[#000] overflow-hidden rounded-lg">

@@ -7,11 +7,13 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { WeatherProvider } from "./Context/WeatherData/WeatherDataContext.jsx";
 import { OtherCitiesProvider } from "./Context/OtherCitiesContext/OtherCitiesContext.jsx";
+import ThemeContextProvider from "./Context/ThemeContext/ThemeContext.jsx";
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ToastContainer />
+    <ThemeContextProvider>
     <LocationContextProvider>
       <OtherCitiesProvider>
         <WeatherProvider>
@@ -19,5 +21,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </WeatherProvider>
       </OtherCitiesProvider>
     </LocationContextProvider>
+    </ThemeContextProvider>
   </React.StrictMode>
 );
