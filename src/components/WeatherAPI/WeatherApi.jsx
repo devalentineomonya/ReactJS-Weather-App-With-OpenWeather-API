@@ -6,9 +6,9 @@ import FetchGeolocation from "../GetLocationData/FetchGeolocation";
 const instance = axios.create({
   baseURL: 'https://api.openweathermap.org/data/2.5',
   params: {
-    appid: 'ea76d6ff36ff18c4cfdb2cb46488379d',
+    appid: 'c2065f853b5b30df9b5f3ea28faaaf7a',
     units: 'metric',
-    cnt: 7,
+    cnt: 42,
   },
 });
 

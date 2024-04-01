@@ -1,4 +1,3 @@
-import { CloudFog } from "lucide-react";
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo/WeatherInfo";
 import WeatherImage from "./WeatherImage/WeatherImage";
@@ -14,8 +13,8 @@ const WeatherCard = ({ setActiveCard, active, weatherData }) => {
 
     return (
       <div
-        className={` h-[200px]  flex justify-center flex-col items-center rounded-xl overflow-hidden cursor-pointer relative transition-all duration-300 ease-in-out ${
-          active ? " w-[200px]  bg-[#bbd7ec]  " : "w-[100px] bg-[#1b1b1d]"
+        className={` h-[200px]  flex justify-center flex-col items-center flex-shrink-0  rounded-xl overflow-hidden cursor-pointer relative transition-all duration-300 ease-in-out ${
+          active ? " w-[200px]  bg-[#bbd7ec] block" : " w-[110px]  bg-[#1b1b1d]"
         }`}
         onClick={handleClick}
       >

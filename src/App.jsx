@@ -1,5 +1,4 @@
 // import "./App.css";
-import GetRegion from "./components/GetLocation/GetRegion/GetRegion";
 import Navbar from "./components/Navbar/Navbar";
 import Main from "./Pages/Main";
 
@@ -11,7 +10,6 @@ function App() {
       <div className="lg:w-[90%] w-[100%] xl:w-[80%] flex flex-col">
       <Navbar />
       <Main />
-<GetRegion/>
       </div>
     </div>
   );

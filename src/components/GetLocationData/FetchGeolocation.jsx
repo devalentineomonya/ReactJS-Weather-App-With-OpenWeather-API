@@ -4,7 +4,7 @@ const FetchGeolocation = async () => {
       const response = await axios.get('https://ipapi.co/json/');
       return response.data;
     } catch (error) {
-      console.error('Error fetching geolocation:', error);
+      console.error('Error from FetchGeolocation => Error fetching geolocation:', error);
       throw error;
     }
   };

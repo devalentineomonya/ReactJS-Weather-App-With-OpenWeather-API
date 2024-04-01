@@ -6,14 +6,18 @@ import { LocationContextProvider } from "./Context/LocationContext/LocationConte
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { WeatherProvider } from "./Context/WeatherData/WeatherDataContext.jsx";
+import { OtherCitiesProvider } from "./Context/OtherCitiesContext/OtherCitiesContext.jsx";
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ToastContainer />
     <LocationContextProvider>
-      <WeatherProvider>
-        <App />
-      </WeatherProvider>
+      <OtherCitiesProvider>
+        <WeatherProvider>
+          <App />
+        </WeatherProvider>
+      </OtherCitiesProvider>
     </LocationContextProvider>
   </React.StrictMode>
 );

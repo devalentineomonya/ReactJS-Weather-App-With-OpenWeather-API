@@ -19,7 +19,7 @@ const WeatherMapPopup = ({openFullMap}) => {
         Explore global map of wind, weather and oceans condition
       </p>
       <div className="w-[85%] h-[80px] bg-[#000] overflow-hidden rounded-lg">
-        {!loaded ? (
+        {loaded === false ? (
           <SkeletonTheme
             baseColor="#202020"
             highlightColor="#444"
@@ -29,13 +29,13 @@ const WeatherMapPopup = ({openFullMap}) => {
           </SkeletonTheme>
         ) : (
           <img
-            className={`${loaded ? "" : "hidden"}`}
-            src="https://tile.openweathermap.org/map/clouds_new/1/1/1.png?appid=ea76d6ff36ff18c4cfdb2cb46488379d"
-            alt="Cloud"
-            onLoad={() => {
-              setLoaded(true);
-            }}
-          />
+          className={loaded ? "" : "hidden"} 
+          src="https://tile.openweathermap.org/map/clouds_new/1/1/1.png?appid=ea76d6ff36ff18c4cfdb2cb46488379d"
+          alt="Cloud"
+          onLoad={() => {
+            setLoaded(true);
+          }}
+        />
         )}
       </div>
         <button className="w-[85%] h-[35px] bg-[#cbbbec] text-[#101010] rounded-lg mt-[8px] cursor-pointer " onClick={openFullMap}>Get Started</button>

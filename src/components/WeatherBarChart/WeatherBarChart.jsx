@@ -5,10 +5,10 @@ import WeatherChart from "./WeatherChart.jsx/WeatherChart";
 const WeatherBarChart = () => {
   return (
     <div className="flex flex-col">
-      <div>
+      <div className=" mt-[56px]">
         <WeatherChart />
       </div>
-      <div>
+      <div className=" mt-[28px]">
         <OtherCities />
       </div>
     </div>

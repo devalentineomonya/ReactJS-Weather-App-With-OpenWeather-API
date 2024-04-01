@@ -17,7 +17,7 @@ const SearchInput = () => {
     const [city, country] = inputValue.split(",").map((item) => item.trim());
 
     if (!city || !country) {
-      toast.error("Please enter both city name and country name.", {
+      toast.error("Please enter both city name and country name. eg Nairobi, Kenya", {
         theme: "colored",
       });
       return;

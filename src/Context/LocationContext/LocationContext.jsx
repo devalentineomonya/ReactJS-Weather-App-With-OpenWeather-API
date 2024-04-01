@@ -19,7 +19,7 @@ export const LocationContextProvider = ({ children }) => {
           continentCode:locationInfo.continentCode
         });
       } catch (error) {
-        console.error('Error fetching IP:', error);
+        console.error('Error from Location Context => fetching IP:', error);
       }
     };
     getLocation();

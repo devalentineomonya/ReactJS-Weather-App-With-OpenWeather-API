@@ -12,7 +12,7 @@ export const WeatherProvider = ({ children }) => {
         const data = await fetchWeatherData();
         setWeatherData(data.list);
       } catch (error) {
-        console.error("Error fetching weather data:", error);
+        console.error("Error from WeatherDataContext => fetching weather data:", error);
       }
     };
 
