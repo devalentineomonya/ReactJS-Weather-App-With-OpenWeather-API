@@ -4,6 +4,9 @@ import { Monitor, MoonIcon, Sun } from "lucide-react";
 
 const ModeToggler = () => {
   const { theme, setTheme } = useContext(ThemeContext);
+  function changeTheme(theme) {
+    setTheme(theme)
+  }
 
   return (
     <div>

@@ -2,14 +2,9 @@ import {
   Bell,
   LayoutGrid,
   MapPin,
-  Monitor,
-  MoonIcon,
-  Search,
   SearchIcon,
-  Sun,
 } from "lucide-react";
 import React, { useContext, useEffect, useState } from "react";
-import icon from "../../../DevalWeather.jpg";
 import { LocationContext } from "../../Context/LocationContext/LocationContext";
 import SearchInput from "./SearchInput/SearchInput";
 import ModeToggler from "./ModeToggler/ModeToggler";
@@ -19,7 +14,6 @@ const Navbar = () => {
   const { locationInfo, _ } = useContext(LocationContext);
   const { city, countryName } = locationInfo;
   const [search, setSearch] = useState(false);
-  const {theme} = useContext(ThemeContext);
 
   return (
     <div className="flex justify-between md:h-9 h-14 w-full md:relative fixed top-0 left-0 right-0 z-30 dark:bg-[#111015] bg-[#feffff]">
