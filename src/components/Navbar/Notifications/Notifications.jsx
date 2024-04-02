@@ -36,13 +36,13 @@ const Notifications = () => {
     <div className="min-h-screen flex justify-center items-center">
       <Menu as="div" className="relative inline-block text-left">
         <div
-          className="w-[30px] h-[30px] rounded-full bg-[#1e1e1e] flex justify-center items-center text-[#feffff] p-1 cursor-pointer z-[1030] relative"
+          className="w-[30px] h-[30px] rounded-full bg-[#1e1e1e] flex justify-center items-center font-Chakra text-[#feffff] p-1 cursor-pointer z-[1030] relative"
           id="menu-button"
           aria-expanded="true"
           aria-haspopup="true"
           onClick={toggleNotifications}
         >
-            <div className="absolute top-[-5px] right-[-5px] h-[15px] w-[15px] bg-[#bbd7ec] text-white rounded-full text-[4px] text-[#1e1e1e] text-center flex justify-center items-center">{Object.entries(notifications).reduce((total, [_, items]) => total + items.length, 0)}</div>
+            <div className="absolute top-[-5px] right-[-5px] h-[15px] w-[15px] bg-[#bbd7ec] rounded-full text-[2px] text-[#1e1e1e] text-center flex justify-center items-center">{Object.entries(notifications).reduce((total, [_, items]) => total + items.length, 0)}</div>
 
           <Bell size={12} onClick={toggleNotifications} />
         </div>
@@ -56,7 +56,7 @@ const Notifications = () => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute right-0 z-10 mt-2 w-60 origin-top-right bg-[#1e1e1e] pt-[5px] rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none overflow-y-scroll h-[300px]">
+          <Menu.Items className="absolute  z-10 mt-2 w-60 origin-top-right bg-[#1e1e1e] pt-[5px] pl-[8px] rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none overflow-y-scroll h-[300px]">
             <Menu.Item key="self">
               <div className="flex flex-row justify-between items-center">
                 <button
