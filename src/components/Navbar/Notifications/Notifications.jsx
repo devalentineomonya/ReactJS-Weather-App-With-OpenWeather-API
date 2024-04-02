@@ -42,7 +42,7 @@ const Notifications = () => {
           aria-haspopup="true"
           onClick={toggleNotifications}
         >
-            <div className="absolute top-[-5px] right-[-5px] h-[15px] w-[15px] bg-[#bbd7ec] rounded-full text-[2px] text-[#1e1e1e] text-center flex justify-center items-center">{Object.entries(notifications).reduce((total, [_, items]) => total + items.length, 0)}</div>
+            <div className="absolute top-[-5px] right-[-5px] h-[15px] w-[15px] bg-[#bbd7ec] rounded-full text-[10px] text-[#1e1e1e] text-center flex justify-center items-center">{Object.entries(notifications).reduce((total, [_, items]) => total + items.length, 0)}</div>
 
           <Bell size={12} onClick={toggleNotifications} />
         </div>
