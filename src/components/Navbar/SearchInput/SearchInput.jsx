@@ -3,6 +3,7 @@ import { fetchWeatherData } from "../../WeatherAPI/WeatherApi";
 import { toast } from "react-toastify";
 import { WeatherContext } from "../../../Context/WeatherData/WeatherDataContext";
 import { LocationContext } from "../../../Context/LocationContext/LocationContext";
+import { saveNotification } from "../../../Context/NotificationsContext/NotificationContext";
 
 const SearchInput = ({search}) => {
   const [inputValue, setInputValue] = useState("");
@@ -13,16 +14,19 @@ const SearchInput = ({search}) => {
     setInputValue(e.target.value);
   };
 
+
   const handleSubmit = async () => {
     const [city, country] = inputValue.split(",").map((item) => item.trim());
   
     if (!city || !country) {
+      saveNotification("weatherError", "Please enter both city name and country name. eg Nairobi, Kenya");
       toast.error("Please enter both city name and country name. eg Nairobi, Kenya", {
         theme: "colored",
       });
       return;
     }
     if (city === locationInfo.city && country === locationInfo.countryName) {
+      saveNotification("weatherWarning", "Weather data for the same location is already being displayed.");
       toast.warning("Weather data for the same location is already being displayed.", {
         theme: "colored",
       });
@@ -36,6 +40,7 @@ const SearchInput = ({search}) => {
         `Weather data for ${city}, ${country} received successfully.`,
         { theme: "colored" }
       );
+      saveNotification("weatherSuccess", `Weather data for ${city}, ${country} received successfully.`)
       const weatherData = await fetchWeatherData(city, country);
       setWeatherData(weatherData.list);
       setLocationInfo((prevLocationInfo) => ({
@@ -47,11 +52,13 @@ const SearchInput = ({search}) => {
         `Weather data for ${city}, ${country} Fetched successfully.`,
         { theme: "colored" }
       );
+      saveNotification("weatherSuccess", `Weather data for ${city}, ${country} Fetched successfully.`)
     } catch (error) {
       toast.error(
         "Error occurred while fetching weather data. Please try again later.",
         { theme: "colored" }
       );
+      saveNotification("weatherError","Error occurred while fetching weather data. Please try again later.")
     } finally {
       setFetching(false);
     }

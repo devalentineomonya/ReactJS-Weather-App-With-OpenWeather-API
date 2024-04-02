@@ -1,6 +1,9 @@
-import axios from 'axios';
 import { toast } from "react-toastify";
 import FetchGeolocation from "../GetLocationData/FetchGeolocation";
+import axios from 'axios';
+import { saveNotification } from "../../Context/NotificationsContext/NotificationContext";
+
+
 
 // Create an Axios instance
 const instance = axios.create({
@@ -28,6 +31,7 @@ export const fetchWeatherData = async (city = '', country = '') => {
   } catch (error) {
     console.error('Error fetching weather data:', error);
     const errorCode = error.message;
+    saveNotification('weatherError', 'There was a ' + errorCode.toLowerCase() + '. Please try again later.');
     toast.error('There was a ' + errorCode.toLowerCase() + '. Please try again later.', { theme: "colored" });
     throw error;
   }
@@ -42,6 +46,7 @@ export const fetchOtherCities = async (cities) => {
     const cityWeatherData = await Promise.all(promises);
     return cityWeatherData;
   } catch (error) {
+    saveNotification('weatherError', 'There was an error fetching other cities weather data.');
     throw error;
   }
 };
