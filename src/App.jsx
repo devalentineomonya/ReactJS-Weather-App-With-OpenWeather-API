@@ -1,6 +1,7 @@
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Main from "./Pages/Main";
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function App() {
  
@@ -9,6 +10,8 @@ function App() {
       <div className="lg:w-[90%] w-[100%] xl:w-[80%] flex flex-col">
       <Navbar />
       <Main />
+      <SpeedInsights />
+
       </div>
     </div>
   );
