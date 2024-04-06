@@ -23,7 +23,7 @@ const OtherCities = () => {
   }, [capitals]);
 
   return (
-    <div className="flex flex-col w-full mt-[30px] ">
+    <div className="flex flex-col w-full mt-[30px]" onClick={()=>{}}>
       <div className="flex flex-row justify-between">
         <h2 className="text-[#feffff] cursor-pointer">Other large Cities</h2>
         <h3 className="text-[#9c9c9c] flex flex-row gap-x-1 cursor-pointer">
