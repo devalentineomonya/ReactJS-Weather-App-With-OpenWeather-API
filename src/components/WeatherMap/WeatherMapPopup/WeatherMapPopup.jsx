@@ -3,8 +3,15 @@ import React, { useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 const WeatherMapPopup = ({openFullMap}) => {
-  const [loaded, setLoaded] = useState(false);
   const [ visible, setVisible] = useState(true);
+
+  function localDateToUnixTimestamp(localDate) {
+    var utcMilliseconds = localDate.getTime() + (localDate.getTimezoneOffset() * 60000);
+    return Math.floor(utcMilliseconds / 1000);
+}
+
+var localDate = new Date(); 
+var unixTimestamp = localDateToUnixTimestamp(localDate);
   return (
     
     <div className={`bg-[#feffff] rounded-2xl h-[200px] w-[200px] flex flex-col  items-center pt-[10px] relative transition-all ease-in-out duration-300 cursor-pointer ${visible ? "" : "hidden"} `}>
@@ -19,24 +26,13 @@ const WeatherMapPopup = ({openFullMap}) => {
         Explore global map of wind, weather and oceans condition
       </p>
       <div className="w-[85%] h-[80px] bg-[#000] overflow-hidden rounded-lg">
-        {loaded === false ? (
-          <SkeletonTheme
-            baseColor="#202020"
-            highlightColor="#444"
-            enableAnimation={true}
-          >
-            <Skeleton className="w-full h-full" />
-          </SkeletonTheme>
-        ) : (
+        
           <img
-          className={loaded ? "" : "hidden"} 
-          src="https://tile.openweathermap.org/map/clouds_new/1/1/1.png?appid=ea76d6ff36ff18c4cfdb2cb46488379d"
+          src={`http://maps.openweathermap.org/maps/2.0/weather/WND/1/1/1?date=${unixTimestamp}&appid=${import.meta.env.VITE_OPEN_API_KEY}`}
           alt="Cloud"
-          onLoad={() => {
-            setLoaded(true);
-          }}
+         
         />
-        )}
+        
       </div>
         <button className="w-[85%] h-[35px] bg-[#cbbbec] text-[#101010] rounded-lg mt-[8px] cursor-pointer " onClick={openFullMap}>Get Started</button>
     </div>
