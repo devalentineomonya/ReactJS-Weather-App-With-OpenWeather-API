@@ -15,15 +15,15 @@ import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import LocationSearch from "./LocationSearch";
 const Navbar = () => {
   return (
-    <header className="w-full h-14 sticky top-0 flex items-center justify-center px-2 lg:px-0 border-b border-b-gray-200 dark:border-b-gray-600">
+    <header className="w-full h-14 sticky top-0 flex items-center justify-center px-2 lg:px-0 border-b border-b-gray-200 dark:border-b-gray-600 backdrop-blur-sm z-10">
       <NavigationMenu className="w-full max-w-[1200px] block">
         <NavigationMenuList className="flex max-md:justify-between md:grid grid-cols-12 w-full ">
           <NavigationMenuItem className="col-span-2 font-grotesk font-medium text-2xl flex items-center gap-x-2">
-            <Image src={Logo}  alt="Logo" className="w-20 sm:w-8"/>
+            <Image src={Logo} alt="Logo" className="w-20 sm:w-8" />
             <span className="max-sm:hidden">DevalWeather</span>
           </NavigationMenuItem>
           <NavigationMenuItem className="w-full md:col-span-8 flex items-center justify-end md:justify-center">
-           <LocationSearch/>
+            <LocationSearch />
           </NavigationMenuItem>
           <NavigationMenuItem className="col-span-2">
             <NavigationMenuList className="gap-x-1">

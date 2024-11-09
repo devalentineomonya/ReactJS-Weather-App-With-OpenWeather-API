@@ -14,7 +14,7 @@ import { SearchIcon } from "lucide-react";
 
 const LocationSearch = () => {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState<LocationInfo | string>("");
   const [citySuggestions, setCitySuggestions] = useState<LocationInfo[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -27,7 +27,7 @@ const LocationSearch = () => {
     const timer = setTimeout(async () => {
       setLoading(true);
       try {
-        const data = await citySearchHandler(value);
+        const data = await citySearchHandler(typeof value === "string" ? value : value.display_name);
         if (Array.isArray(data)) {
           setCitySuggestions(data);
         }
@@ -49,7 +49,9 @@ const LocationSearch = () => {
 
   const handleKeyDown = (e:KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && value) {
-      handleSelect(value)();
+      if (typeof value !== "string") {
+        handleSelect(value)();
+      }
     }
   };
 
@@ -69,7 +71,7 @@ const LocationSearch = () => {
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput
           placeholder="Type a city..."
-          value={value}
+          value={typeof value === "string" ? value : value.display_name}
           onValueChange={setValue}
           onKeyDown={handleKeyDown}
         />
