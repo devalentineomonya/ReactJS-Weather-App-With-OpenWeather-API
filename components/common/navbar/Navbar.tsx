@@ -17,12 +17,12 @@ const Navbar = () => {
   return (
     <header className="w-full h-14 sticky top-0 flex items-center justify-center px-2 lg:px-0 border-b border-b-gray-200 dark:border-b-gray-600">
       <NavigationMenu className="w-full max-w-[1200px] block">
-        <NavigationMenuList className="grid grid-cols-12 w-full ">
+        <NavigationMenuList className="flex max-md:justify-between md:grid grid-cols-12 w-full ">
           <NavigationMenuItem className="col-span-2 font-grotesk font-medium text-2xl flex items-center gap-x-2">
-            <Image src={Logo} width={24} alt="Logo" />
-            <span>DevalWeather</span>
+            <Image src={Logo}  alt="Logo" className="w-20 sm:w-8"/>
+            <span className="max-sm:hidden">DevalWeather</span>
           </NavigationMenuItem>
-          <NavigationMenuItem className="col-span-8 flex items-center justify-center">
+          <NavigationMenuItem className="w-full md:col-span-8 flex items-center justify-end md:justify-center">
            <LocationSearch/>
           </NavigationMenuItem>
           <NavigationMenuItem className="col-span-2">

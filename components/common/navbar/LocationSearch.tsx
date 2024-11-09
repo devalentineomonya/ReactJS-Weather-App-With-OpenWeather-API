@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, MouseEvent, KeyboardEvent } from "react";
+import React, { useState, useEffect, KeyboardEvent } from "react";
 import {
   CommandDialog,
   CommandEmpty,
@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/command";
 import citySearchHandler from "./citySearchAction";
 import {LocationInfo} from "@/types/location"
+import { SearchIcon } from "lucide-react";
 
 const LocationSearch = () => {
   const [open, setOpen] = useState(false);
@@ -56,12 +57,13 @@ const LocationSearch = () => {
     <>
       <div
         onClick={() => setOpen(true)}
-        className="bg-gray-50 hover:bg-gray-100 dark:bg-gray-700 h-8 rounded-md font-grotesk text-xs flex items-center justify-between w-full max-w-96 px-1 cursor-pointer dark:hover:bg-gray-600"
+        className="md:bg-gray-50 md:hover:bg-gray-100 md:dark:bg-gray-700 h-8 max-md:mr-3 rounded-md font-grotesk text-xs flex items-center justify-end md:justify-between w-full max-w-12 md:max-w-96 md:pl-5 px-1.5 cursor-pointer dark md:dark:hover:bg-gray-600"
       >
-        <span>Search Location ...</span>
-        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+        <span className="max-md:hidden">Search Location ...</span>
+        <kbd className="max-md:hidden pointer-events-none inline-flex h-5 select-none max-md:justify-end items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
           <span className="text-xs">⌘</span>K
         </kbd>
+        <SearchIcon size={16} className="inline-block md:hidden" />
       </div>
 
       <CommandDialog open={open} onOpenChange={setOpen}>

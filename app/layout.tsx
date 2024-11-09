@@ -9,7 +9,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html suppressHydrationWarning lang="en">
       <body className={` ${plusJakartaSans.className} antialiased  bg-white dark:bg-gray-800`}>
         <ThemeProvider
         attribute="class"
@@ -18,7 +18,13 @@ export default function RootLayout({
         disableTransitionOnChange
         >
           <Navbar />
+          <main className="flex justify-center w-full ">
+            <div className="w-full max-w-[1200px]">
+
           {children}
+            </div>
+
+          </main>
         </ThemeProvider>
 
       </body>
