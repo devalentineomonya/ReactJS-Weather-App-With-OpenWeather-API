@@ -44,15 +44,23 @@ const Temperature = () => {
     },
   } satisfies ChartConfig;
 
+  const [marginBottom, setMarginBottom] = React.useState(0);
+
+  React.useEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
+      setMarginBottom(150);
+    }
+  }, []);
+
   return (
-    <Card className="col-span-2 ml-4 rounded-lg bg-transparent  shadow-[rgba(145,_158,_171,_0.3)_0px_0px_2px_0px,_rgba(145,_158,_171,_0.02)_0px_12px_24px_-4px]">
+    <Card className="col-span-12 md:col-span-6 max-lg:mt-4 max-lg:max-h-64 lg:col-span-2 ml-4 rounded-lg bg-transparent  shadow-[rgba(145,_158,_171,_0.3)_0px_0px_2px_0px,_rgba(145,_158,_171,_0.02)_0px_12px_24px_-4px]">
       <CardHeader>
         <h1 className="font-semibold text-lg">$10,230</h1>
         <p className="text-[#7c8fac] text-sm mt-1">Expense</p>
       </CardHeader>
       <CardContent>
         <ChartContainer className="p-0 m-0" config={chartConfig}>
-          <PieChart >
+          <PieChart margin={{ bottom: marginBottom }}>
             <Tooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}

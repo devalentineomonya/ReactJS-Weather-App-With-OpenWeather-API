@@ -3,7 +3,9 @@ import HeroBanner from "@/features/home/components/HeroBanner";
 import OtherCities from "@/features/home/widgets/OtherCities";
 import Precipitation from "@/features/home/widgets/Precipitation";
 import Pressure from "@/features/home/widgets/Pressure";
+import SummaryTable from "@/features/home/widgets/SummaryTable";
 import Temperature from "@/features/home/widgets/Temperature";
+import Trends from "@/features/home/widgets/Trends";
 import Twilight from "@/features/home/widgets/Twilight";
 import Weekly from "@/features/home/widgets/Weekly";
 import Wind from "@/features/home/widgets/Wind";
@@ -19,6 +21,8 @@ export default function Home() {
     <Pressure/>
     <Weekly/>
     <OtherCities/>
+    <Trends/>
+    <SummaryTable/>
    </main>
   );
 }

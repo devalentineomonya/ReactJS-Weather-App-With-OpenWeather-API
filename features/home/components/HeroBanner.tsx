@@ -7,9 +7,9 @@ import Image from "next/image";
 import banner from "@/public/banner.png";
 const HeroBanner = () => {
   return (
-    <Card className="col-span-8 rounded-lg bg-[rgba(93,_135,_255,_0.1)]">
+    <Card className="col-span-12 lg:col-span-8 rounded-lg bg-[rgba(93,_135,_255,_0.1)]">
       <CardContent className="px-4 py-2">
-        <div className="flex w-full ">
+        <div className="flex max-sm:flex-col w-full ">
           <div className="flex-1 py-4 pl-3">
             <div className=" flex items-center gap-x-2  mb-7">
               <Avatar>
