@@ -32,7 +32,11 @@ export default function Login() {
       <div className="w-full max-w-[450px] bg-white dark:bg-[#202936] shadow-[rgba(145,_158,_171,_0.3)_0px_0px_2px_0px,_rgba(145,_158,_171,_0.02)_0px_12px_24px_-4px]   rounded-md p-6">
         <Logo />
         <SocialLoginSection />
-        <Separator className="my-6"> or sign in with</Separator>
+        <div className="flex items-center gap-4">
+          <Separator className="flex-1 dark:bg-gray-500" />
+          <span className="text-muted-foreground">or sign in with</span>
+          <Separator className="flex-1 dark:bg-gray-500" />
+        </div>
         <FormSection />
         <SignupLink />
       </div>
