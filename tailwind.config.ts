@@ -4,7 +4,7 @@ import tailwindcssAnimate from "tailwindcss-animate";
 const config: Config = {
   darkMode: ["class"],
   content: [
-    "./features/**/*.{js,ts,jsx,tsx,mdx}",
+    "./screens/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
@@ -15,9 +15,14 @@ const config: Config = {
 			'0%': { transform: 'rotate3d(1, 1, 0, 0deg)' },
 			'100%': { transform: 'rotate3d(1, 1, 0, 360deg)' },
 		  },
+          "caret-blink": {
+            "0%,70%,100%": { opacity: "1" },
+            "20%,50%": { opacity: "0" },
+          },
       },
       animation: {
         revolve: "revolve 5s linear infinite",
+        "caret-blink": "caret-blink 1.25s ease-out infinite",
       },
       fontFamily: {
         grotesk: ["Space Grotesk", "sans-serif"],
