@@ -1,104 +1,142 @@
-# Deval Weather App
+# Expense Tracker 💸
 
-A modern, responsive weather application built with **Next.js**, updated from **React** for better performance and SEO benefits. This app allows users to check current weather information for their desired locations.
+[![Next.js](https://img.shields.io/badge/Next.js-14.2.3-black?logo=next.js)](https://nextjs.org/)
+[![Firebase](https://img.shields.io/badge/Firebase-10.11.1-orange?logo=firebase)](https://firebase.google.com/)
+[![License](https://img.shields.io/badge/License-MIT-blue)](https://opensource.org/licenses/MIT)
 
-## Table of Contents
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-- [Cloning the Repository](#cloning-the-repository)
-- [Installing Dependencies](#installing-dependencies)
-- [Adding API Keys](#adding-api-keys)
-- [Running the App](#running-the-app)
-- [Contributing](#contributing)
-- [Creating Pull Requests](#creating-pull-requests)
-- [Review and Merge Process](#review-and-merge-process)
+A modern expense tracking web application built with Next.js and Firebase, designed to help users manage their finances effectively.
 
-## Features
-- Real-time weather updates
-- Search by city or current location
-- Responsive design for desktop and mobile
+![Expense Tracker Dashboard Preview](./public/screenshots/dashboard.png)
 
-## Tech Stack
-- **Next.js**: A React framework for better performance and SEO
-- **CSS/Tailwind CSS**: For styling
-- **Weather API**: Used for fetching weather data
+## Features ✨
 
-## Getting Started
-Follow these steps to get a local copy of the project up and running.
+### 🔐 Authentication
+- Secure user registration/login with Firebase Authentication
+- Email/password and Google sign-in options
+- Session management with JWT tokens
 
-### Cloning the Repository
+### 💰 Expense Management
+- Add expenses with category, amount, date, and description
+- Edit/Delete existing transactions
+- Real-time updates using Firestore
+- Monthly expenditure calculation
+- Daily spending limits with alerts
+
+### 📊 Financial Insights
+- Interactive monthly breakdown chart
+- Category-wise spending distribution (Pie chart)
+- Comparative analysis with previous months
+- Exportable financial reports (CSV/PDF)
+
+### ⚙️ User Preferences
+- Customizable expense categories
+- Currency preferences (USD, EUR, INR, etc.)
+- Dark/Light theme toggle
+- Profile management
+
+## Tech Stack 🛠️
+
+- **Frontend**: 
+  - Next.js 14 (App Router)
+  - React 18
+  - Tailwind CSS + Shadcn UI Components
+  - Recharts (Data Visualization)
+
+- **Backend**:
+  - Firebase Authentication
+  - Firestore Database
+  - Firebase Cloud Functions
+  - Firebase Hosting
+
+- **Utilities**:
+  - Zod (Schema Validation)
+  - React Hook Form
+  - date-fns (Date Management)
+  - Vercel Analytics
+
+## Installation ⚡
+
+1. Clone the repository
 ```bash
-git clone https://github.com/devalentineomonya/ReactJS-Weather-App-With-OpenWeather-API.git
-cd ReactJS-Weather-App-With-OpenWeather-API
+git clone https://github.com/devalentineomonya/NextJs-Firebase-Expense-Tracker.git
+cd NextJs-Firebase-Expense-Tracker
 ```
 
-### Installing Dependencies
-Ensure you have **Node.js** installed, then run:
+2. Install dependencies
 ```bash
 npm install
 ```
-or with **Yarn**:
+
+3. Set up Firebase configuration
 ```bash
-yarn install
+cp .env.local.example .env.local
 ```
 
-### Adding API Keys
-1. Sign up for a weather API service (OpenWeatherMap).
-2. Obtain your API key.
-3. Create an `.env.local` file in the root of your project and add:
-   ```dotenv
-   NEXT_PUBLIC_WEATHER_API_KEY=your_api_key_here
-   ```
+4. Add your Firebase credentials in `.env.local`
+```env
+NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+...
+```
 
-### Running the App
-To run the development server, use:
+5. Run the development server
 ```bash
 npm run dev
 ```
-or with **Yarn**:
-```bash
-yarn dev
-```
 
-The app will be available at [http://localhost:3000](http://localhost:3000).
+## Configuration 🔧
 
-### Building for Production
-```bash
-npm run build
-```
-This creates an optimized build of the app in the `.next` directory. You can then start the app with:
-```bash
-npm start
-```
+### Firebase Setup
+1. Create a new Firebase project at [Firebase Console](https://console.firebase.google.com/)
+2. Enable Authentication methods (Email/Password, Google)
+3. Create Firestore database in test mode
+4. Generate web configuration and add to `.env.local`
 
-## Contributing
-We welcome contributions! Follow these guidelines to contribute to the project.
+### Optional Integrations
+- Add Vercel Analytics for usage tracking
+- Configure Firebase Storage for receipt uploads
+- Set up email notifications with SendGrid
 
-### Creating Pull Requests
-1. **Fork** the repository.
-2. **Create a new branch**:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. **Commit your changes**:
-   ```bash
-   git commit -m "Add detailed description of changes"
-   ```
-4. **Push to your branch**:
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-5. **Create a Pull Request**:
-   - Go to the repository on GitHub.
-   - Click on `New Pull Request` and follow the instructions.
+## Usage 📖
 
-### Review and Merge Process
-1. The repository maintainers will review your PR.
-2. Feedback or changes may be requested.
-3. Once approved, your PR will be merged into the `main` branch.
+1. **Sign Up/Login**
+   - Create new account or use Google sign-in
+   - Verify email address for enhanced security
 
----
+2. **Add Expense**
+   - Click "+ Add Expense" button
+   - Fill in details:
+     - Amount
+     - Category (Food, Transportation, Utilities, etc.)
+     - Date
+     - Description
 
-Feel free to contribute new features, bug fixes, or documentation improvements. We appreciate your help in making this app better!
+3. **View Dashboard**
+   - Monthly spending summary
+   - Interactive charts
+   - Recent transactions list
 
+4. **Manage Profile**
+   - Update display name
+   - Change password
+   - Set preferred currency
+
+## Contributing 🤝
+
+Contributions are welcome! Please follow these steps:
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License 📄
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments 🙏
+
+- Firebase for backend services
+- Next.js for React framework
+- Shadcn UI component library
